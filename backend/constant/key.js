@@ -1,0 +1,3 @@
+const KEY = {
+    BICEPS: 'biceps',
+}
