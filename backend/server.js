@@ -24,6 +24,8 @@ app.get('/userController:id', (req, res) => {
    res,send(req.body)
    })
 
+
+
 app.post('/postController', (req, res) => {
    console.log(req.body)
    res,send(req.body)
@@ -31,8 +33,10 @@ app.post('/postController', (req, res) => {
 
 app.get('/postController', (req, res) => {
    console.log(req.body)
+
    res,send(req.body)
 })
+
 
 app.post('/commentController', (req, res) => {
    console.log(req.body)

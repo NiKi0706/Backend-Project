@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     commentController.getComment(req.body, res)
 })
 
-router.post('/post', (req, res) => {
+router.post('/', (req, res) => {
     commentController.addComment(req.body, res)
 })
 
