@@ -2,38 +2,70 @@
 
 const {Comment} = require("../model");
 
-const getComment = async(res) => {
-   await Comment.findAll({}).then(data => {
-        res.send({ result: 200, data: data });
-    }).catch(err => {
-        console.log(err);
-        res.send({ result: 500, error: err.message });
-    })
+//desc    Get Comment
+//route   GET /
+//access  Public
+const getComment = async(req, res) => {
+    try {
+        const comment = await Comment.find({});
+        res.status(200).json({
+            success: true,
+            message: 'Successfully fetched posts',
+            data: comment
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            success: false,
+            message: 'Error fetching posts'
+        });
+    }
+};
+
+//desc    Create Comment
+//route   POST /
+//access  Public
+
+const createComment = async(req, res) => {
+    try {
+        const newComment = await Comment.create(req.body);
+        res.status(201).send({success: true, message: 'Comment Created', data: newComment });
+
+    
+    }
+     catch (error) {
+        res.send({ result: 500, error: error.message });
+    
+    }
 }
 
-const createComment = async(data, res) => {
-//    const apiData = {},
- //   await Comment.create(data)
+//desc    Update a single Comment
+//route   PUT /update
+//access  Public
 
-
+const updateComment = async (req, res) => {
+    
+    try {
+        const updateComment = await Comment(req.body);
+        res.status(201).send({success: true, message: 'Comment Update', data: updateComment}); 
+    }
+    catch (error) {
+        res.send({ result: 500, error: error.message });
+    }
 }
 
-const updateComment = async(data, res) => {
-  await Comment.update(data, { where: { id: data.id } }).then(data => {
-        res.send({ result: 200, data: data });
-    }).catch(err => {
-        console.log(err);
-        res.send({ result: 500, error: err.message });
-    })
-}
-
-const deleteComment = async(data, res) => {
-    await Comment.delete({ where: data }).then(data => {
-        res.send({ result: 200, data: data });
-    }).catch(err => {
-        console.log(err);
-        res.send({ result: 500, error: err.message });
-    })
+//desc    Delete a Comment
+//route   DELETE /delete
+//access  Public
+const deleteComment = async (req, res) => {
+    
+    try {
+        const deleteComment = await Comment(req.body);
+        res.status(201).send({success: true, message: 'Comment Delete', data: deleteComment}); 
+    }
+    catch (error) {
+        res.send({ result: 500, error: error.message });
+    }
 }
 
 //module.exports = { getComment, createComment, updateComment, deleteComment}

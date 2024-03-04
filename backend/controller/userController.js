@@ -1,46 +1,67 @@
 
 "use strict";
+const { req } = require("good-logs");
 const {User}= require("../model");
 
-// finds all users in DB, then sends array as response
+// @desc    Get Users
+// @route   GET /
+// @access  Public
+const getUsers = async (req, res) => {
+    try {
+        const users = await User.find({});
+        res.status(200).json({
+            success: true,
+            message: 'Successfully fetched users',
+            data: users
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            success: false,
+            message: 'Error fetching users'
+        });
+    }
+};
 
-const getUsers = async(res) => {
- await User.find({}).then(data => {
- res.send({result: 200 , data: data});
- }).catch(err => {
- console.log(err);
- res.send({ result: 500, error: err.message });
- })
+// @desc    Create User
+// @route   USER /
+// @access  Public
+const createUser = async(req, res) => {
+    try {
+        const newUser = await User.create(req.body);
+        res.status(201).send({success: true, message: 'User Created', data: newUser }); 
+    }
+    catch (error) {
+        res.send({ result: 500, error: error.message });
+    }
+}
+    
+// @desc    Delete a single User
+// @route   DELETE/delete
+// @access  Public
+const deleteUser = async (req, res) => {
+    
+    try {
+        const deleteUser = await User(req.body);
+        res.status(201).send({success: true, message: 'User Deleted', data: deleteUser}); 
+    }
+    catch (error) {
+        res.send({ result: 500, error: error.message });
+    }
 }
 
-// uses JSON from request body to create new user in DB
-const createUser = async(data, res) => {
- await User.create(data).then(data => {
- res.send({ result: 200 , data: data});
- }).catch(err => {
- console.log(err);
- res.send({ result: 500, error: err.message });
- })
-}
-
-//uses JSON from request body to delete user in DB
-const deleteUser = async(data, res) => {
- await User.destroy({where: data}).then(data => {
- res.send({ result: 200 , data: data});
- }).catch(err => {
- console.log(err);
- res.send({ result: 500, error: err.message });
- })
-}
-
-//uses JSON from request body to update user in DB
-const updateUser = async(data, res) => {
- await User.update(data, {where: {id: data.id}}).then(data => {
- res.send({ result: 200 , data: data});
- }).catch(err => {
- console.log(err);
- res.send({ result: 500, error: err.message });
- })
+// @desc    Update a single User
+// @route   PUT /update
+// @access  Public
+const updateUser = async (req, res) => {
+    
+    try {
+        const updateUser = await User(req.body);
+        res.status(201).send({success: true, message: 'User Update', data: updateUser}); 
+    }
+    catch (error) {
+        res.send({ result: 500, error: error.message });
+    }
 }
 
 module.exports = {

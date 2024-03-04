@@ -8,7 +8,7 @@ const { LOG } = require('../constant')
 // mongoose
 const dbConnect = async () => {
     try {
-        await connect(GLOBAL.DB_URI)
+        await connect(process.env.DB_URI)
         console.log(LOG.DB_STATUS_MSG.bgYellow)
     } catch (error) {
         console.error(error?.message)

@@ -14,7 +14,9 @@ app.get("/", (req, res) => {
    res.json({message: LOG.WELCOME_SERVER});
 });
 
-app.post('/userController', (req, res) => {
+
+/*
+app.post('/userController:id', (req, res) => {
 console.log(req.body)
 res,send(req.body)
 })
@@ -23,7 +25,6 @@ app.get('/userController:id', (req, res) => {
    console.log(req.body)
    res,send(req.body)
    })
-
 
 
 app.post('/postController', (req, res) => {
@@ -41,7 +42,7 @@ app.get('/postController', (req, res) => {
 app.post('/commentController', (req, res) => {
    console.log(req.body)
    res,send(req.body)
-})
+})*/
 
 
 app.use("/api/user", userRoute);

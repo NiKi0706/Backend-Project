@@ -1,0 +1,403 @@
+{
+	"info": {
+		"_postman_id": "98f7c413-d6f8-4a80-8bfa-3a4030984262",
+		"name": "FitnessApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33313690"
+	},
+	"item": [
+		{
+			"name": "Workout",
+			"item": [
+				{
+					"name": "Get All Workouts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{8081}}{{WORKOUT}}",
+							"host": [
+								"{{8081}}{{WORKOUT}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a  Workout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{8081}}{{WORKOUT}}/:workoutId",
+							"host": [
+								"{{8081}}{{WORKOUT}}"
+							],
+							"path": [
+								":workoutId"
+							],
+							"variable": [
+								{
+									"key": "workoutId",
+									"value": "65e3dedfb62a7c899fb6dcb1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Workout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n {\r\n    \"name\": \"Hammer Curls\",\r\n    \"type\": \"strength\",\r\n    \"muscle\": \"biceps\",\r\n    \"equipment\": \"dumbbell\",\r\n    \"level\": \"intermediate\",\r\n    \"instructions\": \"Stand up with your torso upright and a dumbbell on each hand being held at arms length. The elbows should be close to the torso. The palms of the hands should be facing your torso. This will be your starting position. Now, while holding your upper arm stationary, exhale and curl the weight forward while contracting the biceps. Continue to raise the weight until the biceps are fully contracted and the dumbbell is at shoulder level. Hold the contracted position for a brief moment as you squeeze the biceps. Tip: Focus on keeping the elbow stationary and only moving your forearm. After the brief pause, inhale and slowly begin the lower the dumbbells back down to the starting position. Repeat for the recommended amount of repetitions.  Variations: There are many possible variations for this movement. For instance, you can perform the exercise sitting down on a bench with or without back support and you can also perform it by alternating arms; first lift the right arm for one repetition, then the left, then the right, etc.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{8081}}{{WORKOUT}}",
+							"host": [
+								"{{8081}}{{WORKOUT}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Workout",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"_delete-me please!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{8081}}{{WORKOUT}}/:workoutId",
+							"host": [
+								"{{8081}}{{WORKOUT}}"
+							],
+							"path": [
+								":workoutId"
+							],
+							"variable": [
+								{
+									"key": "workoutId",
+									"value": "65e3dedfb62a7c899fb6dcb1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Workout",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{8081}}{{WORKOUT}}/:workoutId",
+							"host": [
+								"{{8081}}{{WORKOUT}}"
+							],
+							"path": [
+								":workoutId"
+							],
+							"variable": [
+								{
+									"key": "workoutId",
+									"value": "65e3dedfb62a7c899fb6dcab"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create a User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Jimmy\",\r\n    \"lastName\": \"_Taylor\",\r\n    \"email\": \"jimmy@email.com\",\r\n    \"password\": \"78787878\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{8081}}{{USER}}/create",
+							"host": [
+								"{{8081}}{{USER}}"
+							],
+							"path": [
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{8081}}{{USER}}",
+							"host": [
+								"{{8081}}{{USER}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{8081}}{{USER}}/update",
+							"host": [
+								"{{8081}}{{USER}}"
+							],
+							"path": [
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{8081}}{{USER}}/delete",
+							"host": [
+								"{{8081}}{{USER}}"
+							],
+							"path": [
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Create new Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\":\"Testing \",\r\n  \"description\": \"Testing\",\r\n  \"image\": \"https://media.istockphoto.com/id/1457433817/photo/group-of-healthy-food-for-flexitarian-diet.jpg?s=612x612&w=0&k=20&c=v48RE0ZNWpMZOlSp13KdF1yFDmidorO2pZTu2Idmd3M=\",\r\n  \"userID\": \"1\",\r\n  \"likes\": \"0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{8081}}{{POST}}/create",
+							"host": [
+								"{{8081}}{{POST}}"
+							],
+							"path": [
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{8081}}{{POST}}",
+							"host": [
+								"{{8081}}{{POST}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Post",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"_delete-me please!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{8081}}{{POST}}/update?postId=65e505e6728bb6747954d065",
+							"host": [
+								"{{8081}}{{POST}}"
+							],
+							"path": [
+								"update"
+							],
+							"query": [
+								{
+									"key": "postId",
+									"value": "65e505e6728bb6747954d065"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Post",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{8081}}{{POST}}/delete",
+							"host": [
+								"{{8081}}{{POST}}"
+							],
+							"path": [
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "Post a comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comment\": \"Hello my name is\",\r\n    \"postId\": \"65e12013015295b2869f1e56\",\r\n    \"userId\":\"65e4fe292861de06474020d5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{8081}}{{COMMENT}}/create",
+							"host": [
+								"{{8081}}{{COMMENT}}"
+							],
+							"path": [
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Comment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{8081}}{{COMMENT}}",
+							"host": [
+								"{{8081}}{{COMMENT}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Comment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comment\": \"Amazing\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{8081}}{{COMMENT}}/update",
+							"host": [
+								"{{8081}}{{COMMENT}}"
+							],
+							"path": [
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Comment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{8081}}{{COMMENT}}/delete",
+							"host": [
+								"{{8081}}{{COMMENT}}"
+							],
+							"path": [
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
